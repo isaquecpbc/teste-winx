@@ -1,0 +1,829 @@
+{
+	"info": {
+		"_postman_id": "a559beb2-4679-4625-97b7-33e6251b2697",
+		"name": "Teste winx",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10250448"
+	},
+	"item": [
+		{
+			"name": "employees",
+			"item": [
+				{
+					"name": "get employees",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/api/employees",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"employees"
+							],
+							"query": [
+								{
+									"key": "responsibility",
+									"value": "laranja",
+									"disabled": true
+								}
+							]
+						},
+						"description": "get tasks model "
+					},
+					"response": []
+				},
+				{
+					"name": "store employees",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "responsibility",
+									"value": "Dev PHP",
+									"type": "text"
+								},
+								{
+									"key": "admission_at",
+									"value": "2025-01-26",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "47955443344",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/api/employees",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"employees"
+							]
+						},
+						"description": "Store task by form-data inputs"
+					},
+					"response": []
+				},
+				{
+					"name": "store import employees by CSV",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "csv_file",
+									"type": "file",
+									"src": "/C:/projetos/teste-winx/Teste Winx - Página1.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/api/employees/import",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"employees",
+								"import"
+							]
+						},
+						"description": "Store task by form-data inputs"
+					},
+					"response": []
+				},
+				{
+					"name": "update employees",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": \"4\",\n    \"responsibility\": \"Dev PHP update\",\n    \"admission_at\": \"2025-01-26\",\n    \"phone\": \"47955443344\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/api/employees/3",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"employees",
+								"3"
+							]
+						},
+						"description": "put update task by raw text type json"
+					},
+					"response": []
+				},
+				{
+					"name": "delete employees",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": \"2\",\n    \"title\": \"Profundezas do Oceano Pacifico\",\n    \"type\": \"Viagem\",\n    \"description\": \"BoJack embarca em uma aventura nas desconhecidas profundezas do Oceano para poder assistir à estreia de seu filme Secretariat. Sem álcool, drogas ou com quem conversar, o cavalo reencontra uma antiga colega de trabalho que decepcionou no passado e tenta de todas as formas se redimir. O silêncio nunca foi tão ensurdecedor na TV.\",\n    \"status\": false,\n    \"start_at\": \"2024-07-18 05:00:00\",\n    \"conclusion_at\": \"2024-07-18 23:45:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/api/employees/5",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"employees",
+								"5"
+							]
+						},
+						"description": "put update task by raw text type json"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI2MjYxNjIyLCJleHAiOjE3MjYyNjUyMjIsIm5iZiI6MTcyNjI2MTYyMiwianRpIjoiandYZzFBMTNlOTY1ZUt2UyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.t98S6qkeFLQ7zxOdjpy-0zEf8FwHLKjFvxFiA3yEbLE",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "companies",
+			"item": [
+				{
+					"name": "get companies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/api/companies",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"companies"
+							]
+						},
+						"description": "get tasks model "
+					},
+					"response": []
+				},
+				{
+					"name": "store companies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Teste Postman",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/api/companies",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"companies"
+							]
+						},
+						"description": "Store task by form-data inputs"
+					},
+					"response": []
+				},
+				{
+					"name": "update companies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Postman update\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/api/companies/3",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"companies",
+								"3"
+							]
+						},
+						"description": "put update task by raw text type json"
+					},
+					"response": []
+				},
+				{
+					"name": "delete companies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/api/companies/3",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"companies",
+								"3"
+							]
+						},
+						"description": "put update task by raw text type json"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI2MjYxNjIyLCJleHAiOjE3MjYyNjUyMjIsIm5iZiI6MTcyNjI2MTYyMiwianRpIjoiandYZzFBMTNlOTY1ZUt2UyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.t98S6qkeFLQ7zxOdjpy-0zEf8FwHLKjFvxFiA3yEbLE",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/api/users",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "get tasks model "
+					},
+					"response": []
+				},
+				{
+					"name": "store users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User teste create",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user@teste.create",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Teste-create@123",
+									"description": "\nSenha precisa ter ao menos 1 caractere especial, 1 numero e 1 letra maiúscula.",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/api/users",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Store task by form-data inputs"
+					},
+					"response": []
+				},
+				{
+					"name": "update users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"User teste update\",\n        \"email\": \"user@teste.update\",\n        \"password\": \"Teste-update@123\",\n        \"company_id\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/api/users/4",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users",
+								"4"
+							]
+						},
+						"description": "put update task by raw text type json"
+					},
+					"response": []
+				},
+				{
+					"name": "delete users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/api/users/4",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users",
+								"4"
+							]
+						},
+						"description": "Post for update only status of task"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI2MjYxNjIyLCJleHAiOjE3MjYyNjUyMjIsIm5iZiI6MTcyNjI2MTYyMiwianRpIjoiandYZzFBMTNlOTY1ZUt2UyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.t98S6qkeFLQ7zxOdjpy-0zEf8FwHLKjFvxFiA3yEbLE",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "localhost",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NTU3NzkwOTYsImV4cCI6MTY1NTc4MjY5NiwibmJmIjoxNjU1Nzc5MDk2LCJqdGkiOiJScVlWZWhJeFZxRk5hYUJPIiwic3ViIjo4LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.lUdI7jxPdaWSJfVSQyJaZP7m7fsRO5w-ZfVqbSFpdQg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "get tasks model "
+			},
+			"response": []
+		},
+		{
+			"name": "auth login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Verifica se a resposta contém um token\r",
+							"if (pm.response.code === 200) { // Se a resposta for 200 OK\r",
+							"    const jsonData = pm.response.json();\r",
+							"    // Salva o token na variável de ambiente 'token'\r",
+							"    // pm.environment.set(\"token\", jsonData.token);\r",
+							"    pm.collectionVariables.set(\"token\", jsonData.token);\r",
+							"    // Para usar uma variável global, altere para:\r",
+							"    // pm.globals.set(\"token\", jsonData.token);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@adminstradores.adm\",\n    \"password\": \"Admin@adm\"\n}"
+				},
+				"url": {
+					"raw": "localhost/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				},
+				"description": "Login JWT Laravel api"
+			},
+			"response": [
+				{
+					"name": "auth login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@adminstradores.adm\",\n    \"password\": \"Admin@adm\"\n}"
+						},
+						"url": {
+							"raw": "localhost/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.27.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Jan 2025 01:46:28 GMT"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": {\n        \"id\": 1,\n        \"name\": \"Admin Master\",\n        \"email\": \"admin@adminstradores.adm\",\n        \"email_verified_at\": null,\n        \"admin\": 1,\n        \"created_at\": \"2025-01-14T01:00:56.000000Z\",\n        \"updated_at\": \"2025-01-14T01:00:56.000000Z\"\n    },\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzM2ODE5MTg4LCJleHAiOjE3MzY4MjI3ODgsIm5iZiI6MTczNjgxOTE4OCwianRpIjoiNUJXVDRuWUU4YUs4MXh0NCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.8AjFi7rzFGSLiqrU-VKRtodE-C7OGrShLqS0RAn4Mj4\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI2Nzk0MDY4LCJleHAiOjE3MjY3OTc2NjgsIm5iZiI6MTcyNjc5NDA2OCwianRpIjoidEwxbHBxTWxSZkJ5b25tayIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.ic8H2A-NmIcDRBja1b73BTg7JOTElNBE5ZhDd9UU6UA"
+		}
+	]
+}
